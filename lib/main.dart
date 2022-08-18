@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:time_tracker/app/landing_page.dart';
 import 'package:time_tracker/firebase_options.dart';
 
+import 'app/services/auth.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: LandingPage(),
+      home: LandingPage(
+        auth: Auth(),
+      ),
     );
   }
 }
